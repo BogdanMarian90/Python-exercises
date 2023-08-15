@@ -349,130 +349,18 @@ cerc1.raza = 20
 print(f'Aria cercului este : {cerc1.aria()}')
 del cerc1.raza
 
-'''
-from abc import ABC, abstractmethod
 
-
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-
-class Creature(ABC):
-    pass
-
-    @abstractmethod
-    def eat(self):
-        pass
-
-
-class Animal(Creature):
-    def __init__(self, age, weight):
-        self.age = age
-        self.wieght = weight
-
-    def eat(self):
-        print(f"I am an eating {self.__class__.__name__}")
-
-
-class WildAnimal(Animal):
-    def __init__(self, age, weight, location):
-        super().__init__(age, weight)
-        self._location = location
-
-    @property
-    def location(self):
-        return self._location
-
-    @location.setter
-    def location(self, value):
-        self._location = value
-
-
-class DomesticAnimal(Animal):
-    def __init__(self, age, weight, owner, location):
-        super().__init__(age, weight)
-        self.owner = owner
-        self._location = location
-
-    @property
-    def location(self):
-        return self._location
-
-    @location.setter
-    def location(self, value):
-        self._location = value
-
-
-class JungleAnimal(WildAnimal):
-    def __init__(self, age, weight):
-        super().__init__(age, weight, "Jungle")
-
-    @property
-    def location(self):
-        return self._location
-
-    @location.setter
-    def location(self, value):
-        raise Exception("Unable to modify location")
-
-
-class ForestAnimal(WildAnimal):
-    def __init__(self, age, weight):
-        super().__init__(age, weight, "Forest")
-
-    @property
-    def location(self):
-        return self._location
-
-    @location.setter
-    def location(self, value):
-        raise Exception("Unable to modify location")
-
-
-class Pet(DomesticAnimal):
-    def __init__(self, age, weight, owner, name):
-        super().__init__(age, weight, owner, "House Yard")
-        self.name = name
-
-    @property
-    def location(self):
-        return self._location
-
-    @location.setter
-    def location(self, value):
-        raise Exception("Unable to modify location")
-
-
-p1 = Person("Bogdan", 22)
-dog = Pet(10, 15, "Bogdan", "Rex")
-wolf = ForestAnimal(10, 25)
-bird = JungleAnimal(10, 3)
-cow = DomesticAnimal(5, 250, "Bogdan", "House Yard")
-
-# wolf.location = "House"
-list = [dog, wolf, bird, cow]
-for animal in list:
-    animal.eat()
-    # print(animal.age)
-    # print(animal.wieght)
-
-print(dog.owner, dog.age, dog.name, dog.wieght, dog.location)
-'''
-
-'''
 class Car:
     color = "Grey"
     actual_speed = 0
-    chosen_colors = ["Red", "Black", "Blue"]  # Atenție la numele variabilei
+    chosen_colors = ["Red", "Black", "Blue"]
     brand = "Dacia"
     registered = False
 
     def __init__(self, model, max_speed):
         self.model = model
         self.max_speed = max_speed
-        self._paint = self.color  # Inițializăm culoarea cu culoarea implicită
+        self._paint = self.color
 
     def description(self):
         print(f"Car {self.brand}, "
@@ -482,7 +370,7 @@ class Car:
               f"{self.max_speed},"
               f"{self.registered}")
 
-    def register(self):  # Renunțăm la registred2 și folosim register
+    def register(self):
         self.registered = True
 
     @property
@@ -492,7 +380,7 @@ class Car:
     @paint.setter
     def paint(self, chosen_color):
         print(f"New color is {chosen_color}")
-        if chosen_color not in self.chosen_colors:  # Verificăm în lista de culori disponibile
+        if chosen_color not in self.chosen_colors:
             raise Exception("Color is not in the optional list")
         self._paint = chosen_color
 
@@ -512,7 +400,7 @@ my_car = Car("Logan", 180)
 my_car.description()
 my_car.accelerate()
 my_car.stop()
-my_car.paint = "Red"  # Folosim setter-ul pentru paint
+my_car.paint = "Red"
 my_car.register()
 my_car.description()
-'''
+
